@@ -157,9 +157,10 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.setAttribute('role', "treeitem");
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.alt = restaurant.info;
+  image.setAttribute("alt", restaurant.info);
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
   li.append(image);
 
@@ -176,6 +177,8 @@ createRestaurantHTML = (restaurant) => {
   li.append(address);
 
   const more = document.createElement('a');
+  more.setAttribute('role', 'button');
+  more.setAttribute('aria-pressed', 'false');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
@@ -209,3 +212,16 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
+if ('serviceWorker' in navigator) {
+  console.log('CLIENT: service worker registration in progress.');
+  navigator.serviceWorker.register('/sw.js').then(function() {
+    console.log('CLIENT: service worker registration complete.');
+  }, function() {
+    console.log('CLIENT: service worker registration failure.');
+  })
+  .catch(function(err){
+    console.log("error getting worker", err);
+  });
+} else {
+  console.log('CLIENT: service worker is not supported.');
+}

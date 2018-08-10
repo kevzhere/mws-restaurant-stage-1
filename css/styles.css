@@ -143,6 +143,8 @@ nav h1 a {
   margin: 0;
   padding: 30px 15px 60px;
   text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 #restaurants-list li {
   background-color: #fff;
@@ -152,9 +154,8 @@ nav h1 a {
   min-height: 380px;
   padding: 0 30px 25px;
   text-align: left;
-  width: 80%;
-  margin-left: 8%;
-  margin-right: 12%;
+  width: 25%;
+  flex-grow: 1;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -292,7 +293,7 @@ nav h1 a {
 }
 
 @media screen and (min-width: 760px){
-  #restaurants-list li h1{
+/*  #restaurants-list li h1{
     font-size: 50px;
     margin: .5%;
   }
@@ -303,5 +304,5 @@ nav h1 a {
   #restaurants-list li a{
     font-size: 35px;
     margin: .5%;
-  }
+  }*/
 }
